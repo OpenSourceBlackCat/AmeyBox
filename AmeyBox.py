@@ -1,5 +1,5 @@
 from colorama import init, Fore
-from json import load
+from json import load, loads
 from sys import argv
 class AmeyBox:
     def __init__(self):
@@ -9,10 +9,21 @@ class AmeyBox:
                 break
             else:
                 self.config="config.json"
-        print(f"{Fore.RED} {self.jsonDataLoader(configFile=self.config)}")
+        self.jsonData=self.jsonDataLoader(configFile=self.config)
+        self.installApp()
     def jsonDataLoader(self, configFile="config.json"):
         if configFile.endswith(".json"):
             with open(configFile, "r") as configJson:
-                return load(configJson)
+                return load(configJson)["AmeyBox"]
         else: 
             print(f"{Fore.RED}Invalid Config File Format!{Fore.RESET}")
+    def mainInterfaceLoder(self):
+        self.allPackages = self.jsonData['Packages']
+        for package in self.allPackages:
+            print(f"{Fore.RESET}{package}:\n{Fore.RESET}")
+            for pack in range(len(self.allPackages[package])):
+                print(f"{Fore.GREEN}[{list(self.allPackages[package].keys())[pack]}]: {self.allPackages[package][str(pack+1)]['name']}{Fore.RESET}")
+            print("\n")
+    def installApp(self):
+        while True:
+            self.mainInterfaceLoder()
