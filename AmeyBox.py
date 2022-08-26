@@ -68,3 +68,5 @@ class AmeyBox:
             else:
                 self.packageInstaller(pkgNum=installOption)
                 
+if __name__ == "__main__":
+    AmeyBox()
