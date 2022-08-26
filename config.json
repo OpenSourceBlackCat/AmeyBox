@@ -2,14 +2,17 @@
     "AmeyBox": {
         "Name": "AmeyBox",
         "Packages": {
-            "Important Packages": {
-                "1": {"name": "meow", "url": ""},
-                "2": {"name": "bhow", "url": ""}
-            },
-            "Developer Packages": {
-                "1": {"name": "Python", "url": ""},
-                "2": {"name": "NodeJS", "url": ""},
-                "3": {"name": "MinGW GNU Compiler", "url": ""}
+            "1": {
+                "Important Packages": {
+                "1": {"name": "meow", "version": "", "url": "https://raw.githubusercontent.com/Amey-Gurjar/ameyfetch/master/logo.txt", "fileName": "meow.txt"},
+                "2": {"name": "bhow", "url": "", "fileName": ""}
+            }},
+            "2": {
+                "Developer Packages": {
+                "1": {"name": "Python", "version": "", "url": "", "fileName": ""},
+                "2": {"name": "NodeJS", "version": "", "url": "", "fileName": ""},
+                "3": {"name": "MinGW GNU Compiler", "version": "", "url": "", "fileName": ""}
+            }
             }
         }
     }

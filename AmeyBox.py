@@ -1,5 +1,8 @@
 from colorama import init as c_init, Fore
-from json import load, loads
+from requests import get as req_get
+from os import system as os_system
+from tempfile import gettempdir
+from json import load
 from sys import argv
 class AmeyBox:
     def __init__(self):
@@ -21,10 +24,34 @@ class AmeyBox:
     def mainInterfaceLoder(self):
         self.allPackages = self.jsonData['Packages']
         for package in self.allPackages:
-            print(f"{Fore.RESET}{package}:\n{Fore.RESET}")
-            for pack in range(len(self.allPackages[package])):
-                print(f"{Fore.GREEN}[{list(self.allPackages[package].keys())[pack]}]: {self.allPackages[package][str(pack+1)]['name']}{Fore.RESET}")
-            print("\n")
+            mainPackage = self.allPackages[package]
+            print(f"{Fore.GREEN}[{package}] {list(mainPackage.keys())[0]}:{Fore.RESET}")
+            for innerPack in mainPackage[list(mainPackage.keys())[0]]:
+                print(mainPackage[list(mainPackage.keys())[0]][innerPack]['name'])
+    def packageInstaller(self, pkgNum=0):
+        for package in self.allPackages[str(pkgNum)]:
+            mainPackage = self.allPackages[str(pkgNum)][package]
+            for innerPack in mainPackage:
+                print(f"{Fore.GREEN}[{innerPack}] {mainPackage[innerPack]['name']}{Fore.RESET}")
+        print(f"\nEnter The Package To Install! (Press Q To Quit)")
+        packageName = str(input("AmeyBox> ")).lower()
+        if (packageName == "q"):
+            exit()
+        else:
+            mainInstallObject = mainPackage[packageName]
+            tempFileName = f"{gettempdir()}\\{mainInstallObject['fileName']}"
+            URL = mainInstallObject["url"]
+            with open(tempFileName, "wb") as installPackage:
+                installPackage.write(req_get(URL).content)
+            os_system(f"{tempFileName}")
+        self.mainInterfaceLoder()
     def installApp(self):
         while True:
             self.mainInterfaceLoder()
+            print(f"\nEnter The Package Type To Install! (Press Q To Quit)")
+            installOption = str(input("AmeyBox> ")).lower()
+            if (installOption == "q"):
+                exit()
+            else:
+                self.packageInstaller(pkgNum=installOption)
+                
