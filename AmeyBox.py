@@ -4,15 +4,17 @@ from os import system as os_system
 from tempfile import gettempdir
 from json import load
 from sys import argv
+from urllib.request import urlopen
 class AmeyBox:
     def __init__(self):
+        self.DefaultConfig = urlopen("https://raw.githubusercontent.com/Amey-Gurjar/AmeyBox/main/config.json")
         c_init()
         for c_arg in argv:
             if "--config:" in c_arg:
                 self.config=c_arg.replace("--config:", "")
                 break
             else:
-                self.config="config.json"
+                self.config=self.DefaultConfig
         self.jsonData=self.jsonDataLoader(configFile=self.config)
         self.installApp()
     def jsonDataLoader(self, configFile="config.json"):
