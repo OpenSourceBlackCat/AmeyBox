@@ -4,8 +4,8 @@
         "Packages": {
             "1": {
                 "Important Packages": {
-                "1": {"name": "meow", "version": "", "url": "https://raw.githubusercontent.com/Amey-Gurjar/ameyfetch/master/logo.txt", "fileName": "meow.txt"},
-                "2": {"name": "bhow", "url": "", "fileName": ""}
+                "1": {"name": "VS Redistributables x86", "version": "2015-2022", "url": "https://aka.ms/vs/17/release/vc_redist.x86.exe", "fileName": "VSRedistributables_x86.exe"},
+                "2": {"name": "VS Redistributables x64", "version": "2015-2022", "url": "https://aka.ms/vs/17/release/vc_redist.x64.exe", "fileName": "VSRedistributables_x64.exe"}
             }},
             "2": {
                 "Developer Packages": {
