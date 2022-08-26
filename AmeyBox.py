@@ -18,10 +18,9 @@ class AmeyBox:
         self.jsonData=self.jsonDataLoader(configFile=self.config)
         self.installApp()
     def jsonDataLoader(self, configFile="config.json"):
-        if configFile.endswith(".json"):
-            with open(configFile, "r") as configJson:
-                return load(configJson)["AmeyBox"]
-        else: 
+        try:
+            return load(configFile)["AmeyBox"]
+        except: 
             print(f"{Fore.RED}Invalid Config File Format!{Fore.RESET}")
     def mainInterfaceLoder(self):
         os_system("cls")
