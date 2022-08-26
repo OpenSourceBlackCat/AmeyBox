@@ -10,7 +10,7 @@
             "2": {
                 "Development Packages": {
                 "1": {"name": "Python", "version": "3.10.6", "url": "https://www.python.org/ftp/python/3.10.6/python-3.10.6-amd64.exe", "fileName": "PythonInstaller.exe"},
-                "2": {"name": "NodeJS", "version": "16.17.0 LTS", "url": "https://nodejs.org/dist/v16.17.0/node-v16.17.0-x64.msi", "fileName": "NodeJS.exe"},
+                "2": {"name": "NodeJS", "version": "16.17.0 LTS", "url": "https://nodejs.org/dist/v16.17.0/node-v16.17.0-x64.msi", "fileName": "NodeJS.msi"},
                 "3": {"name": "MinGW GNU Compiler", "version": "Latest", "url": "https://yer.dl.sourceforge.net/project/mingw/Installer/mingw-get-setup.exe", "fileName": "MinGWInstaller.exe"}
             }},
             "3": {
