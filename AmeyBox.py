@@ -22,6 +22,7 @@ class AmeyBox:
         else: 
             print(f"{Fore.RED}Invalid Config File Format!{Fore.RESET}")
     def mainInterfaceLoder(self):
+        os_system("cls")
         self.allPackages = self.jsonData['Packages']
         for package in self.allPackages:
             mainPackage = self.allPackages[package]
@@ -32,7 +33,7 @@ class AmeyBox:
         for package in self.allPackages[str(pkgNum)]:
             mainPackage = self.allPackages[str(pkgNum)][package]
             for innerPack in mainPackage:
-                print(f"{Fore.GREEN}[{innerPack}] {mainPackage[innerPack]['name']}{Fore.RESET}")
+                print(f"{Fore.GREEN}[{innerPack}] {mainPackage[innerPack]['name']}{Fore.RESET} -> {Fore.BLUE}v{mainPackage[innerPack]['version']}{Fore.RESET}")
         print(f"\nEnter The Package To Install! (Press Q To Quit)")
         packageName = str(input("AmeyBox> ")).lower()
         if (packageName == "q"):

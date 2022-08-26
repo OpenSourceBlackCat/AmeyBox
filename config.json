@@ -9,7 +9,7 @@
             }},
             "2": {
                 "Developer Packages": {
-                "1": {"name": "Python", "version": "", "url": "", "fileName": ""},
+                "1": {"name": "Python", "version": "3.10.6", "url": "https://www.python.org/ftp/python/3.10.6/python-3.10.6-amd64.exe", "fileName": "PythonInstaller.exe"},
                 "2": {"name": "NodeJS", "version": "", "url": "", "fileName": ""},
                 "3": {"name": "MinGW GNU Compiler", "version": "", "url": "", "fileName": ""}
             }
