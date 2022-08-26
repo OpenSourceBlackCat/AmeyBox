@@ -1,8 +1,9 @@
-from colorama import init, Fore
+from colorama import init as c_init, Fore
 from json import load, loads
 from sys import argv
 class AmeyBox:
     def __init__(self):
+        c_init()
         for c_arg in argv:
             if "--config:" in c_arg:
                 self.config=c_arg.replace("--config:", "")
