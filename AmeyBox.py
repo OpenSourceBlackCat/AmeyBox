@@ -45,7 +45,8 @@ class AmeyBox:
             for installOs in mainInstallObject: 
                 for installSystem in mainInstallObject[installOs]:
                     print(f"{Fore.GREEN}[{installSystem}] {mainInstallObject[installOs][installSystem]['system']} -> {mainInstallObject[installOs][installSystem]['version']}{Fore.RESET}")    
-            systemToInstall = str(input(f"\nEnter The Operating System To Install On! (Press Q To Quit)")).lower()
+            print(f"\nEnter The Operating System To Install On! (Press Q To Quit)")
+            systemToInstall = str(input("AmeyBox> ")).lower()
             if (systemToInstall == "q"):
                 exit()
             else:
