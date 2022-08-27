@@ -24,10 +24,26 @@
             "2": {
                 "Development Packages": {
                     "1": {
-                        "name": "Python",
-                        "version": "3.10.6",
-                        "url": "https://www.python.org/ftp/python/3.10.6/python-3.10.6-amd64.exe",
-                        "fileName": "PythonInstaller.exe"
+                        "Python": {
+                            "1": {
+                                "system": "Windows x64",
+                                "version": "3.10.6",
+                                "url": "https://www.python.org/ftp/python/3.10.6/python-3.10.6-amd64.exe",
+                                "fileName": "PythonInstaller.exe"
+                            },
+                            "2": {
+                                "system": "Linux x64",
+                                "version": "3.10.6",
+                                "url": "https://www.python.org/ftp/python/3.10.6/Python-3.10.6.tar.xz",
+                                "fileName": "PythonInstaller.tar.xz"
+                            },
+                            "3": {
+                                "system": "Mac x64",
+                                "version": "3.10.6",
+                                "url": "https://www.python.org/ftp/python/3.10.6/python-3.10.6-macos11.pkg",
+                                "fileName": "PythonInstaller.pkg"
+                            }
+                        }
                     },
                     "2": {
                         "name": "NodeJS",

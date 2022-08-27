@@ -29,7 +29,8 @@ class AmeyBox:
             mainPackage = self.allPackages[package]
             print(f"{Fore.GREEN}[{package}] {list(mainPackage.keys())[0]}:{Fore.RESET}")
             for innerPack in mainPackage[list(mainPackage.keys())[0]]:
-                print(mainPackage[list(mainPackage.keys())[0]][innerPack])
+                for finalPack in mainPackage[list(mainPackage.keys())[0]][innerPack]:
+                    print(finalPack)
     def packageInstaller(self, pkgNum=0):
         for package in self.allPackages[str(pkgNum)]:
             mainPackage = self.allPackages[str(pkgNum)][package]
