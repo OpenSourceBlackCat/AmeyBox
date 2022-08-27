@@ -117,22 +117,34 @@
                 "4": {
                     "By The Developer": {
                         "1": {
-                            "name": "AmeyBOT",
-                            "version": "LTS",
-                            "url": "https://github.com/Amey-Gurjar/AmeyBot/releases/download/AmeyBot/AmeyBotInstallerSetup.py",
-                            "fileName": "AmeyBotInstallerSetup.py"
+                            "AmeyBot": {
+                                "system": "Windows x64",
+                                "version": "LTS",
+                                "url": "https://github.com/Amey-Gurjar/AmeyBot/releases/download/AmeyBot/AmeyBotInstallerSetup.py",
+                                "fileName": "AmeyBotInstallerSetup.py"
+                            }
                         },
                         "2": {
-                            "name": "AmeyFetchPy",
-                            "version": "0.2.0",
-                            "url": "https://github.com/Amey-Gurjar/ameyfetch/releases/download/AmeyFetch_0.2.0/AmeyFetchPy.zip",
-                            "fileName": "AmeyFetchPy.zip"
-                        },
-                        "3": {
-                            "name": "AmeyFetchWin",
-                            "version": "0.2.0",
-                            "url": "https://github.com/Amey-Gurjar/ameyfetch/releases/download/AmeyFetch_0.2.0/AmeyFetchWin.zip",
-                            "fileName": "AmeyFetchWin.zip"
+                            "AmeyFetch": {
+                                "1": {
+                                    "system": "Windows x64",
+                                    "verison": "0.2.0",
+                                    "url": "https://github.com/Amey-Gurjar/ameyfetch/releases/download/AmeyFetch_0.2.0/AmeyFetchWin.zip",
+                                    "fileName": "AmeyFetchWin.zip"
+                                },
+                                "2": {
+                                    "system": "Linux x64",
+                                    "version": "0.2.0",
+                                    "url": "https://github.com/Amey-Gurjar/ameyfetch/releases/download/AmeyFetch_0.2.0/AmeyFetchPy.zip",
+                                    "fileName": "AmeyFetchPy.zip"
+                                },
+                                "3": {
+                                    "system":"Mac x64",
+                                    "version": "0.2.0",
+                                    "url": "https://github.com/Amey-Gurjar/ameyfetch/releases/download/AmeyFetch_0.2.0/AmeyFetchPy.zip",
+                                    "fileName": "AmeyFetchPy.zip"
+                                }
+                            }
                         }
                     }
                 }
