@@ -142,6 +142,26 @@
                 }
             },
             "5": {
+                "Video": {
+                    "1": {
+                        "VLC": {
+                            "1": {
+                                "system":"Windows x64",
+                                "version": "3.0.17.x",
+                                "url": "https://mirrors.estointernet.in/videolan/vlc/3.0.17.4/win64/vlc-3.0.17.4-win64.exe",
+                                "fileName": "vlcInstaller.exe"
+                            },
+                            "2": {
+                                "system": "Mac x64",
+                                "version": "3.0.17.x",
+                                "url": "https://mirrors.estointernet.in/videolan/vlc/3.0.17.3/macosx/vlc-3.0.17.3-intel64.dmg",
+                                "fileName": "vlcInstaller.dmg"
+                            }
+                        }
+                    }
+                }
+            },
+            "6": {
                 "Music": {
                     "1": {
                         "Spotify": {
@@ -161,7 +181,7 @@
                     }
                 }
             },
-            "6": {
+            "7": {
                 "By The Developer": {
                     "1": {
                         "AmeyBot": {
