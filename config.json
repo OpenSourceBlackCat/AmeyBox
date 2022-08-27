@@ -77,73 +77,73 @@
                             }
                         }
                     }
-                },
-                "3": {
-                    "Gaming": {
-                        "1": {
-                            "Steam": {
-                                "1": {
-                                    "system": "Windows x64",
-                                    "version": "Latest",
-                                    "url": "https://cdn.cloudflare.steamstatic.com/client/installer/SteamSetup.exe",
-                                    "fileName": "SteamInstaller.exe"
-                                },
-                                "2": {
-                                    "system": "Linux x64",
-                                    "version": "Latest",
-                                    "url": "https://cdn.cloudflare.steamstatic.com/client/installer/steam.deb",
-                                    "fileName": "SteamInstaller.deb"
-                                },
-                                "3": {
-                                    "system":"Mac x64",
-                                    "verison": "Latest",
-                                    "url": "https://cdn.cloudflare.steamstatic.com/client/installer/steam.dmg",
-                                    "fileName": "SteamInstaller.dmg"
-                                }
+                }
+            },
+            "3": {
+                "Gaming": {
+                    "1": {
+                        "Steam": {
+                            "1": {
+                                "system": "Windows x64",
+                                "version": "Latest",
+                                "url": "https://cdn.cloudflare.steamstatic.com/client/installer/SteamSetup.exe",
+                                "fileName": "SteamInstaller.exe"
+                            },
+                            "2": {
+                                "system": "Linux x64",
+                                "version": "Latest",
+                                "url": "https://cdn.cloudflare.steamstatic.com/client/installer/steam.deb",
+                                "fileName": "SteamInstaller.deb"
+                            },
+                            "3": {
+                                "system": "Mac x64",
+                                "verison": "Latest",
+                                "url": "https://cdn.cloudflare.steamstatic.com/client/installer/steam.dmg",
+                                "fileName": "SteamInstaller.dmg"
                             }
-                        },
-                        "2": {
-                            "Epic Games": {
-                                "1": {
-                                    "system": "Windows x64",
-                                    "version": "Latest",
-                                    "url": "https://launcher-public-service-prod06.ol.epicgames.com/launcher/api/installer/download/EpicGamesLauncherInstaller.msi",
-                                    "fileName": "EpicInstaller.msi"
-                                }
+                        }
+                    },
+                    "2": {
+                        "Epic Games": {
+                            "1": {
+                                "system": "Windows x64",
+                                "version": "Latest",
+                                "url": "https://launcher-public-service-prod06.ol.epicgames.com/launcher/api/installer/download/EpicGamesLauncherInstaller.msi",
+                                "fileName": "EpicInstaller.msi"
                             }
                         }
                     }
-                },
-                "4": {
-                    "By The Developer": {
-                        "1": {
-                            "AmeyBot": {
+                }
+            },
+            "4": {
+                "By The Developer": {
+                    "1": {
+                        "AmeyBot": {
+                            "system": "Windows x64",
+                            "version": "LTS",
+                            "url": "https://github.com/Amey-Gurjar/AmeyBot/releases/download/AmeyBot/AmeyBotInstallerSetup.py",
+                            "fileName": "AmeyBotInstallerSetup.py"
+                        }
+                    },
+                    "2": {
+                        "AmeyFetch": {
+                            "1": {
                                 "system": "Windows x64",
-                                "version": "LTS",
-                                "url": "https://github.com/Amey-Gurjar/AmeyBot/releases/download/AmeyBot/AmeyBotInstallerSetup.py",
-                                "fileName": "AmeyBotInstallerSetup.py"
-                            }
-                        },
-                        "2": {
-                            "AmeyFetch": {
-                                "1": {
-                                    "system": "Windows x64",
-                                    "verison": "0.2.0",
-                                    "url": "https://github.com/Amey-Gurjar/ameyfetch/releases/download/AmeyFetch_0.2.0/AmeyFetchWin.zip",
-                                    "fileName": "AmeyFetchWin.zip"
-                                },
-                                "2": {
-                                    "system": "Linux x64",
-                                    "version": "0.2.0",
-                                    "url": "https://github.com/Amey-Gurjar/ameyfetch/releases/download/AmeyFetch_0.2.0/AmeyFetchPy.zip",
-                                    "fileName": "AmeyFetchPy.zip"
-                                },
-                                "3": {
-                                    "system":"Mac x64",
-                                    "version": "0.2.0",
-                                    "url": "https://github.com/Amey-Gurjar/ameyfetch/releases/download/AmeyFetch_0.2.0/AmeyFetchPy.zip",
-                                    "fileName": "AmeyFetchPy.zip"
-                                }
+                                "verison": "0.2.0",
+                                "url": "https://github.com/Amey-Gurjar/ameyfetch/releases/download/AmeyFetch_0.2.0/AmeyFetchWin.zip",
+                                "fileName": "AmeyFetchWin.zip"
+                            },
+                            "2": {
+                                "system": "Linux x64",
+                                "version": "0.2.0",
+                                "url": "https://github.com/Amey-Gurjar/ameyfetch/releases/download/AmeyFetch_0.2.0/AmeyFetchPy.zip",
+                                "fileName": "AmeyFetchPy.zip"
+                            },
+                            "3": {
+                                "system": "Mac x64",
+                                "version": "0.2.0",
+                                "url": "https://github.com/Amey-Gurjar/ameyfetch/releases/download/AmeyFetch_0.2.0/AmeyFetchPy.zip",
+                                "fileName": "AmeyFetchPy.zip"
                             }
                         }
                     }
