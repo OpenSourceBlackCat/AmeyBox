@@ -75,23 +75,42 @@
                                 "url": "https://yer.dl.sourceforge.net/project/mingw/Installer/mingw-get-setup.exe",
                                 "fileName": "MinGWInstaller.exe"
                             }
-
                         }
                     }
                 },
                 "3": {
                     "Gaming": {
                         "1": {
-                            "name": "Steam",
-                            "version": "Latest",
-                            "url": "https://cdn.cloudflare.steamstatic.com/client/installer/SteamSetup.exe",
-                            "fileName": "SteamInstaller.exe"
+                            "Steam": {
+                                "1": {
+                                    "system": "Windows x64",
+                                    "version": "Latest",
+                                    "url": "https://cdn.cloudflare.steamstatic.com/client/installer/SteamSetup.exe",
+                                    "fileName": "SteamInstaller.exe"
+                                },
+                                "2": {
+                                    "system": "Linux x64",
+                                    "version": "Latest",
+                                    "url": "https://cdn.cloudflare.steamstatic.com/client/installer/steam.deb",
+                                    "fileName": "SteamInstaller.deb"
+                                },
+                                "3": {
+                                    "system":"Mac x64",
+                                    "verison": "Latest",
+                                    "url": "https://cdn.cloudflare.steamstatic.com/client/installer/steam.dmg",
+                                    "fileName": "SteamInstaller.dmg"
+                                }
+                            }
                         },
                         "2": {
-                            "name": "Epic Games",
-                            "version": "Latest",
-                            "url": "https://launcher-public-service-prod06.ol.epicgames.com/launcher/api/installer/download/EpicGamesLauncherInstaller.msi",
-                            "fileName": "EpicInstaller.msi"
+                            "Epic Games": {
+                                "1": {
+                                    "system": "Windows x64",
+                                    "version": "Latest",
+                                    "url": "https://launcher-public-service-prod06.ol.epicgames.com/launcher/api/installer/download/EpicGamesLauncherInstaller.msi",
+                                    "fileName": "EpicInstaller.msi"
+                                }
+                            }
                         }
                     }
                 },
