@@ -97,7 +97,7 @@
                             },
                             "3": {
                                 "system": "Mac x64",
-                                "verison": "Latest",
+                                "version": "Latest",
                                 "url": "https://cdn.cloudflare.steamstatic.com/client/installer/steam.dmg",
                                 "fileName": "SteamInstaller.dmg"
                             }

@@ -30,12 +30,12 @@ class AmeyBox:
             print(f"{Fore.GREEN}[{package}] {list(mainPackage.keys())[0]}:{Fore.RESET}")
             for innerPack in mainPackage[list(mainPackage.keys())[0]]:
                 for finalPack in mainPackage[list(mainPackage.keys())[0]][innerPack]:
-                    print(finalPack)
+                    print(f"{Fore.WHITE}{finalPack}{Fore.RESET}")
     def packageInstaller(self, pkgNum=0):
         for package in self.allPackages[str(pkgNum)]:
             mainPackage = self.allPackages[str(pkgNum)][package]
             for innerPack in mainPackage:
-                print(f"{Fore.GREEN}[{innerPack}] {mainPackage[innerPack]}{Fore.RESET} -> {Fore.BLUE}v{mainPackage[innerPack]}{Fore.RESET}")
+                print(f"{Fore.GREEN}[{innerPack}] {list(mainPackage[innerPack].keys())[0]}{Fore.RESET}")
         print(f"\nEnter The Package To Install! (Press Q To Quit)")
         packageName = str(input("AmeyBox> ")).lower()
         if (packageName == "q"):
@@ -43,7 +43,9 @@ class AmeyBox:
         else:
             mainInstallObject = mainPackage[packageName]
             for installOs in mainInstallObject: 
-                print(installOs)
+                for installSystem in mainInstallObject[installOs]:
+                    print(f"{Fore.GREEN}[{installSystem}] {mainInstallObject[installOs][installSystem]['system']} -> {mainInstallObject[installOs][installSystem]['version']}{Fore.RESET}")    
+                
             tempFileName = f"{gettempdir()}\\{mainInstallObject['fileName']}"
             URL = mainInstallObject["url"]
             with open(tempFileName, "wb") as installPackage:
