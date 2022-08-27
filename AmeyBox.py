@@ -41,7 +41,8 @@ class AmeyBox:
             exit()
         else:
             mainInstallObject = mainPackage[packageName]
-            print(mainInstallObject)
+            for installOs in mainInstallObject: 
+                print(installOs)
             tempFileName = f"{gettempdir()}\\{mainInstallObject['fileName']}"
             URL = mainInstallObject["url"]
             with open(tempFileName, "wb") as installPackage:
