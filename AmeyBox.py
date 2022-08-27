@@ -25,9 +25,9 @@ class AmeyBox:
             print(f"{Fore.RED}Invalid Config File Format!{Fore.RESET}")
     def mainInterfaceLoder(self):
         os_system("cls")
-        print(f"{'='*get_ts().columns}")
+        print(f"{'='*get_ts().columns}\n")
         print(f"{Fore.GREEN}{figlet_format('Amey Tool Box', font='banner3', width=get_ts().columns)}{Fore.RESET}")
-        print(f"{'='*get_ts().columns}")
+        print(f"{'='*get_ts().columns}\n")
         self.allPackages = self.jsonData['Packages']
         for package in self.allPackages:
             mainPackage = self.allPackages[package]
