@@ -239,8 +239,9 @@
                                 "url": "https://download.cpuid.com/cpu-z/cpu-z_2.01-en.exe",
                                 "fileName": "cpu_z.exe"
                             }
+                        }
                         },
-                        "HW Monitor": {
+                        "2": {"HW Monitor": {
                             "1":{
                                 "system":"Windows x64",
                                 "version": "1.46",
@@ -248,8 +249,8 @@
                                 "fileName": "hwmonitorInstaller.exe"
                             }
                         }
-                    }
                 }
+            }
             },
             "9": {
                 "By The Developer": {
