@@ -1,10 +1,11 @@
+from os import system as os_system, get_terminal_size as get_ts
 from colorama import init as c_init, Fore
 from requests import get as req_get
-from os import system as os_system
+from urllib.request import urlopen
+from pyfiglet import figlet_format
 from tempfile import gettempdir
 from json import load
 from sys import argv
-from urllib.request import urlopen
 class AmeyBox:
     def __init__(self):
         self.DefaultConfig = urlopen("https://raw.githubusercontent.com/Amey-Gurjar/AmeyBox/main/config.json")
@@ -24,6 +25,9 @@ class AmeyBox:
             print(f"{Fore.RED}Invalid Config File Format!{Fore.RESET}")
     def mainInterfaceLoder(self):
         os_system("cls")
+        print(f"{'='*get_ts().columns}")
+        print(f"{Fore.GREEN}{figlet_format('Amey Tool Box', font='banner3', width=get_ts().columns)}{Fore.RESET}")
+        print(f"{'='*get_ts().columns}")
         self.allPackages = self.jsonData['Packages']
         for package in self.allPackages:
             mainPackage = self.allPackages[package]
