@@ -116,6 +116,52 @@
                 }
             },
             "4": {
+                "Office": {
+                    "1": {
+                        "LibreOffice": {
+                            "1": {
+                                "system": "Windows x64",
+                                "version": "7.4.0",
+                                "url": "https://download.documentfoundation.org/libreoffice/stable/7.4.0/win/x86_64/LibreOffice_7.4.0_Win_x64.msi",
+                                "fileName": "LibreOfficeInstaller.exe"
+                            },
+                            "2": {
+                                "system": "Linux x64",
+                                "version": "7.4.0",
+                                "url": "https://download.documentfoundation.org/libreoffice/stable/7.4.0/deb/x86_64/LibreOffice_7.4.0_Linux_x86-64_deb.tar.gz",
+                                "fileName": "LibreOfficeInstaller.tar.gz"
+                            },
+                            "3": {
+                                "system": "Mac x64",
+                                "version": "7.4.0 Intel",
+                                "url": "https://download.documentfoundation.org/libreoffice/stable/7.4.0/mac/x86_64/LibreOffice_7.4.0_MacOS_x86-64.dmg",
+                                "fileName": "LibreOfficeInstaller.dmg"
+                            }
+                        }
+                    }
+                }
+            },
+            "5": {
+                "Music": {
+                    "1": {
+                        "Spotify": {
+                            "1": {
+                                "system": "Windows x64",
+                                "version": "Latest",
+                                "url": "https://download.scdn.co/SpotifySetup.exe",
+                                "fileName": "SpotifySetup.exe"
+                            },
+                            "2": {
+                                "system": "Mac x64",
+                                "version": "Latest",
+                                "url": "https://download.scdn.co/SpotifyInstaller.zip",
+                                "fileName": "SpotifySetup.zip"
+                            }
+                        }
+                    }
+                }
+            },
+            "6": {
                 "By The Developer": {
                     "1": {
                         "AmeyBot": {
