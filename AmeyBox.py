@@ -45,24 +45,28 @@ class AmeyBox:
             for installOs in mainInstallObject: 
                 for installSystem in mainInstallObject[installOs]:
                     print(f"{Fore.GREEN}[{installSystem}] {mainInstallObject[installOs][installSystem]['system']} -> {mainInstallObject[installOs][installSystem]['version']}{Fore.RESET}")    
-                
-            tempFileName = f"{gettempdir()}\\{mainInstallObject['fileName']}"
-            URL = mainInstallObject["url"]
-            with open(tempFileName, "wb") as installPackage:
-                q_res = req_get(URL, stream=True)
-                if q_res.headers.get("content-length") is None:
-                    installPackage.write(q_res.content)
-                else:
-                    dl = 0
-                    total_length = int(q_res.headers.get("content-length"))
-                    for data in q_res.iter_content(chunk_size=4096):
-                        dl += len(data)
-                        installPackage.write(data)
-                        done = int(50 * dl / total_length)
-                        print(f"{Fore.GREEN}Downloading {mainInstallObject['fileName']}: {Fore.WHITE}[{'='*(0 + done)}]{Fore.RESET}", end="\r")
-            print(f"\n{Fore.GREEN}Installing {mainInstallObject['fileName']}...{Fore.RESET}")
-            os_system(f"{tempFileName}")
-            self.mainInterfaceLoder()
+            systemToInstall = str(input(f"\nEnter The Operating System To Install On! (Press Q To Quit)")).lower()
+            if (systemToInstall == "q"):
+                exit()
+            else:
+                finalInstallObject = mainInstallObject[installOs][systemToInstall]
+                tempFileName = f"{gettempdir()}\\{finalInstallObject['fileName']}"
+                URL = finalInstallObject["url"]
+                with open(tempFileName, "wb") as installPackage:
+                    q_res = req_get(URL, stream=True)
+                    if q_res.headers.get("content-length") is None:
+                        installPackage.write(q_res.content)
+                    else:
+                        dl = 0
+                        total_length = int(q_res.headers.get("content-length"))
+                        for data in q_res.iter_content(chunk_size=4096):
+                            dl += len(data)
+                            installPackage.write(data)
+                            done = int(50 * dl / total_length)
+                            print(f"{Fore.GREEN}Downloading {finalInstallObject['fileName']}: {Fore.WHITE}[{'='*(0 + done)}]{Fore.RESET}", end="\r")
+                print(f"\n{Fore.GREEN}Installing {finalInstallObject['fileName']}...{Fore.RESET}")
+                os_system(f"{tempFileName}")
+                self.mainInterfaceLoder()
     def installApp(self):
         while True:
             self.mainInterfaceLoder()
