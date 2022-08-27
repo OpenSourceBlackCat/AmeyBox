@@ -29,12 +29,12 @@ class AmeyBox:
             mainPackage = self.allPackages[package]
             print(f"{Fore.GREEN}[{package}] {list(mainPackage.keys())[0]}:{Fore.RESET}")
             for innerPack in mainPackage[list(mainPackage.keys())[0]]:
-                print(mainPackage[list(mainPackage.keys())[0]][innerPack]['name'])
+                print(mainPackage[list(mainPackage.keys())[0]][innerPack])
     def packageInstaller(self, pkgNum=0):
         for package in self.allPackages[str(pkgNum)]:
             mainPackage = self.allPackages[str(pkgNum)][package]
             for innerPack in mainPackage:
-                print(f"{Fore.GREEN}[{innerPack}] {mainPackage[innerPack]['name']}{Fore.RESET} -> {Fore.BLUE}v{mainPackage[innerPack]['version']}{Fore.RESET}")
+                print(f"{Fore.GREEN}[{innerPack}] {mainPackage[innerPack]}{Fore.RESET} -> {Fore.BLUE}v{mainPackage[innerPack]}{Fore.RESET}")
         print(f"\nEnter The Package To Install! (Press Q To Quit)")
         packageName = str(input("AmeyBox> ")).lower()
         if (packageName == "q"):

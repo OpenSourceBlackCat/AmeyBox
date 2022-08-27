@@ -6,13 +6,13 @@
                     "1": {
                         "VS Redistributables": {
                             "1": {
-                                "name": "Windows x86",
+                                "system": "Windows x86",
                                 "version": "2015-2022",
                                 "url": "https://aka.ms/vs/17/release/vc_redist.x86.exe",
                                 "fileName": "VSRedistributables_x86.exe"
                             },
                             "2": {
-                                "name": "Windows x64",
+                                "system": "Windows x64",
                                 "version": "2015-2022",
                                 "url": "https://aka.ms/vs/17/release/vc_redist.x64.exe",
                                 "fileName": "VSRedistributables_x64.exe"
