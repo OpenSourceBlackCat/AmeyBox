@@ -1,13 +1,21 @@
 from os import system as os_system, get_terminal_size as get_ts
 from colorama import init as c_init, Fore
+from rich.tree import Tree as NodeTree
+from rich import print as r_print
 from requests import get as req_get
 from urllib.request import urlopen
 from pyfiglet import figlet_format
 from tempfile import gettempdir
+from tqdm import tqdm
 from json import load
 from sys import argv
 class AmeyBox:
     def __init__(self):
+        self.prompt = f"{Fore.BLUE}AmeyToolBox> {Fore.RESET}"
+        self.guide_style = "bold"
+        self.SelectColor = Fore.GREEN
+        self.NodeColor = Fore.YELLOW
+        self.ResetColor = Fore.RESET
         self.DefaultConfig = urlopen("https://raw.githubusercontent.com/Amey-Gurjar/AmeyBox/main/config.json")
         c_init()
         for c_arg in argv:
@@ -22,35 +30,40 @@ class AmeyBox:
         try:
             return load(configFile)["AmeyBox"]
         except: 
-            print(f"{Fore.RED}Invalid Config File Format!{Fore.RESET}")
+            print(f"{Fore.RED}Invalid Config File Format!{self.ResetColor}")
     def mainInterfaceLoder(self):
         os_system("cls")
         print(f"{'='*get_ts().columns}\n")
-        print(f"{Fore.GREEN}{figlet_format('Amey Tool Box', font='banner3', width=get_ts().columns)}{Fore.RESET}")
+        print(f"{Fore.GREEN}{figlet_format('Amey Tool Box', font='banner3', width=get_ts().columns)}{self.ResetColor}")
         print(f"{'='*get_ts().columns}\n")
         self.allPackages = self.jsonData['Packages']
         for package in self.allPackages:
             mainPackage = self.allPackages[package]
-            print(f"{Fore.GREEN}[{package}] {list(mainPackage.keys())[0]}:{Fore.RESET}")
+            packageTree = NodeTree(f"{self.SelectColor}[{package}] {list(mainPackage.keys())[0]}:{self.ResetColor}", guide_style=self.guide_style)
             for innerPack in mainPackage[list(mainPackage.keys())[0]]:
                 for finalPack in mainPackage[list(mainPackage.keys())[0]][innerPack]:
-                    print(f"{Fore.WHITE}{finalPack}{Fore.RESET}")
+                    packageTree.add(f"{self.NodeColor}{finalPack}{self.ResetColor}")
+            r_print(packageTree)
     def packageInstaller(self, pkgNum=0):
         for package in self.allPackages[str(pkgNum)]:
             mainPackage = self.allPackages[str(pkgNum)][package]
+            packageTree = NodeTree(f"{self.NodeColor}{list(self.allPackages[str(pkgNum)].keys())[0]}:{self.ResetColor}", guide_style=self.guide_style)
             for innerPack in mainPackage:
-                print(f"{Fore.GREEN}[{innerPack}] {list(mainPackage[innerPack].keys())[0]}{Fore.RESET}")
+                packageTree.add(f"{self.SelectColor}[{innerPack}] {list(mainPackage[innerPack].keys())[0]}{self.ResetColor}")
+        r_print(packageTree)
         print(f"\nEnter The Package To Install! (Press Q To Quit)")
-        packageName = str(input("AmeyBox> ")).lower()
+        packageName = str(input(self.prompt)).lower()
         if (packageName == "q"):
             exit()
         else:
             mainInstallObject = mainPackage[packageName]
-            for installOs in mainInstallObject: 
+            for installOs in mainInstallObject:
                 for installSystem in mainInstallObject[installOs]:
-                    print(f"{Fore.GREEN}[{installSystem}] {mainInstallObject[installOs][installSystem]['system']} -> {mainInstallObject[installOs][installSystem]['version']}{Fore.RESET}")    
+                    packageTree = NodeTree(f"{self.SelectColor}[{installSystem}] {mainInstallObject[installOs][installSystem]['system']} {self.ResetColor}")
+                    packageTree.add(f"{Fore.BLUE}Version: {self.NodeColor}{mainInstallObject[installOs][installSystem]['version']}{self.ResetColor}")
+                    r_print(packageTree)
             print(f"\nEnter The Operating System To Install On! (Press Q To Quit)")
-            systemToInstall = str(input("AmeyBox> ")).lower()
+            systemToInstall = str(input(self.prompt)).lower()
             if (systemToInstall == "q"):
                 exit()
             else:
@@ -62,21 +75,17 @@ class AmeyBox:
                     if q_res.headers.get("content-length") is None:
                         installPackage.write(q_res.content)
                     else:
-                        dl = 0
                         total_length = int(q_res.headers.get("content-length"))
-                        for data in q_res.iter_content(chunk_size=4096):
-                            dl += len(data)
+                        for data in tqdm(q_res.iter_content(chunk_size=4096), desc=f"Downloading {finalInstallObject['fileName']}{Fore.YELLOW}", total=(total_length/4096), unit="KB"):
                             installPackage.write(data)
-                            done = int(50 * dl / total_length)
-                            print(f"{Fore.GREEN}Downloading {finalInstallObject['fileName']}: {Fore.WHITE}[{'='*(0 + done)}]{Fore.RESET}", end="\r")
-                print(f"\n{Fore.GREEN}Installing {finalInstallObject['fileName']}...{Fore.RESET}")
+                print(f"\n{Fore.GREEN}Installing {finalInstallObject['fileName']}...{self.ResetColor}")
                 os_system(f"{tempFileName}")
                 self.mainInterfaceLoder()
     def installApp(self):
         while True:
             self.mainInterfaceLoder()
             print(f"\nEnter The Package Type To Install! (Press Q To Quit)")
-            installOption = str(input("AmeyBox> ")).lower()
+            installOption = str(input(self.prompt)).lower()
             if (installOption == "q"):
                 exit()
             else:
