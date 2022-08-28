@@ -1,4 +1,5 @@
 from os import system as os_system, get_terminal_size as get_ts
+from rich.progress import track as pgr_bar
 from colorama import init as c_init, Fore
 from rich.tree import Tree as NodeTree
 from rich import print as r_print
@@ -6,7 +7,6 @@ from requests import get as req_get
 from urllib.request import urlopen
 from pyfiglet import figlet_format
 from tempfile import gettempdir
-from tqdm import tqdm
 from json import load
 from sys import argv
 class AmeyBox:
@@ -76,9 +76,9 @@ class AmeyBox:
                         installPackage.write(q_res.content)
                     else:
                         total_length = int(q_res.headers.get("content-length"))
-                        for data in tqdm(q_res.iter_content(chunk_size=4096), desc=f"Downloading {finalInstallObject['fileName']}{Fore.YELLOW}", total=(total_length/4096), unit="KB"):
+                        for data in pgr_bar(sequence=q_res.iter_content(chunk_size=4096), description=f"{Fore.YELLOW}Downloading {finalInstallObject['fileName']}{Fore.GREEN}", total=(total_length/4096)):
                             installPackage.write(data)
-                print(f"\n{Fore.GREEN}Installing {finalInstallObject['fileName']}...{self.ResetColor}")
+                print(f"\n{Fore.YELLOW}Installing {finalInstallObject['fileName']}...{self.ResetColor}")
                 os_system(f"{tempFileName}")
                 self.mainInterfaceLoder()
     def installApp(self):
