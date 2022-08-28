@@ -31,6 +31,14 @@ class AmeyBox:
             return load(configFile)["AmeyBox"]
         except: 
             print(f"{Fore.RED}Invalid Config File Format!{self.ResetColor}")
+    def userInp(self):
+        userInput = str(input(self.prompt)).lower()
+        if (userInput == "q"):
+            exit()
+        elif(userInput == "0"):
+            self.mainInterfaceLoder()
+        else:
+            return str(int(userInput))
     def mainInterfaceLoder(self):
         os_system("cls")
         print(f"{'='*get_ts().columns}\n")
@@ -52,44 +60,35 @@ class AmeyBox:
                 packageTree.add(f"{self.SelectColor}[{innerPack}] {list(mainPackage[innerPack].keys())[0]}{self.ResetColor}")
         r_print(packageTree)
         print(f"\nEnter The Package To Install! (Press Q To Quit)")
-        packageName = str(input(self.prompt)).lower()
-        if (packageName == "q"):
-            exit()
-        else:
-            mainInstallObject = mainPackage[packageName]
-            for installOs in mainInstallObject:
-                for installSystem in mainInstallObject[installOs]:
-                    packageTree = NodeTree(f"{self.SelectColor}[{installSystem}] {mainInstallObject[installOs][installSystem]['system']} {self.ResetColor}")
-                    packageTree.add(f"{Fore.BLUE}Version: {self.NodeColor}{mainInstallObject[installOs][installSystem]['version']}{self.ResetColor}")
-                    r_print(packageTree)
-            print(f"\nEnter The Operating System To Install On! (Press Q To Quit)")
-            systemToInstall = str(input(self.prompt)).lower()
-            if (systemToInstall == "q"):
-                exit()
+        packageName = self.userInp()
+        mainInstallObject = mainPackage[packageName]
+        for installOs in mainInstallObject:
+            for installSystem in mainInstallObject[installOs]:
+                packageTree = NodeTree(f"{self.SelectColor}[{installSystem}] {mainInstallObject[installOs][installSystem]['system']} {self.ResetColor}")
+                packageTree.add(f"{Fore.BLUE}Version: {self.NodeColor}{mainInstallObject[installOs][installSystem]['version']}{self.ResetColor}")
+                r_print(packageTree)
+        print(f"\nEnter The Operating System To Install On! (Press Q To Quit)")
+        systemToInstall = self.userInp()
+        finalInstallObject = mainInstallObject[installOs][systemToInstall]
+        tempFileName = f"{gettempdir()}\\{finalInstallObject['fileName']}"
+        URL = finalInstallObject["url"]
+        with open(tempFileName, "wb") as installPackage:
+            q_res = req_get(URL, stream=True)
+            if q_res.headers.get("content-length") is None:
+                installPackage.write(q_res.content)
             else:
-                finalInstallObject = mainInstallObject[installOs][systemToInstall]
-                tempFileName = f"{gettempdir()}\\{finalInstallObject['fileName']}"
-                URL = finalInstallObject["url"]
-                with open(tempFileName, "wb") as installPackage:
-                    q_res = req_get(URL, stream=True)
-                    if q_res.headers.get("content-length") is None:
-                        installPackage.write(q_res.content)
-                    else:
-                        total_length = int(q_res.headers.get("content-length"))
-                        for data in pgr_bar(sequence=q_res.iter_content(chunk_size=4096), description=f"{Fore.YELLOW}Downloading {finalInstallObject['fileName']}{Fore.GREEN}", total=(total_length/4096)):
-                            installPackage.write(data)
-                print(f"\n{Fore.YELLOW}Installing {finalInstallObject['fileName']}...{self.ResetColor}")
-                os_system(f"{tempFileName}")
-                self.mainInterfaceLoder()
+                total_length = int(q_res.headers.get("content-length"))
+                for data in pgr_bar(sequence=q_res.iter_content(chunk_size=4096), description=f"{Fore.YELLOW}Downloading {finalInstallObject['fileName']}{Fore.GREEN}", total=(total_length/4096)):
+                    installPackage.write(data)
+        print(f"\n{Fore.YELLOW}Installing {finalInstallObject['fileName']}...{self.ResetColor}")
+        os_system(f"{tempFileName}")
+        self.mainInterfaceLoder()
     def installApp(self):
         while True:
             self.mainInterfaceLoder()
             print(f"\nEnter The Package Type To Install! (Press Q To Quit)")
-            installOption = str(input(self.prompt)).lower()
-            if (installOption == "q"):
-                exit()
-            else:
-                self.packageInstaller(pkgNum=installOption)
+            installOption = self.userInp()
+            self.packageInstaller(pkgNum=installOption)
                 
 if __name__ == "__main__":
     AmeyBox()
