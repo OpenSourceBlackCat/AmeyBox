@@ -1,0 +1,7 @@
+{
+    "AmeyBox": {
+        "installer": {
+            "AmeyToolBox.py": "https://github.com/Amey-Gurjar/AmeyBox/blob/main/AmeyBox.py"
+        }
+    }
+}
