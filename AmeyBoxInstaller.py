@@ -1,5 +1,4 @@
 from os import system as os_sys, path, mkdir
-from gettext import install
 from sys import platform
 from json import load
 from time import sleep
@@ -21,12 +20,12 @@ class AmeyInstaller:
             os_sys("cls")
         else:
             os_sys("clear")
-    def shortCut(name, fileName, dataDir, homeDir, desktopShortcut=False):
+    def shortCut(self, icoName=None, fileName=None, dataDir=None, homeDir=None, desktopShortcut=False):
         import winshell, win32com.client, pythoncom
         pythoncom.CoInitialize()
         desktop = winshell.desktop()
         dataDirMain = path.join(dataDir, fileName)
-        mainPath = path.join(desktop, name)
+        mainPath = path.join(desktop, icoName)
         startPath = path.join(homeDir, "AppData", "Roaming", "Microsoft", "Windows", "Start Menu", "Programs", "AmeyToolBox")
         if not path.exists(startPath):
             mkdir(startPath)
@@ -35,12 +34,12 @@ class AmeyInstaller:
             shortcut = shell.CreateShortCut(mainPath)
             shortcut.WorkingDirectory = f"{dataDir}"
             shortcut.Targetpath = f"{dataDirMain}"
-            shortcut.IconLocation = f"{path.join(dataDir, 'AmeyToolBoxIcon.ico')}"
+            shortcut.IconLocation = f"{path.join(dataDir, 'AmeyToolBox.ico')}"
             shortcut.save()
-        startShortcut = shell.CreateShortCut(path.join(startPath, name))
+        startShortcut = shell.CreateShortCut(path.join(startPath, icoName))
         startShortcut.WorkingDirectory = f"{dataDir}"
         startShortcut.Targetpath = f"{dataDirMain}"
-        startShortcut.IconLocation = f"{path.join(dataDir, 'AmeyToolBoxIcon.ico')}"
+        startShortcut.IconLocation = f"{path.join(dataDir, 'AmeyToolBox.ico')}"
         startShortcut.save() 
     def installer(self):
         for package_num, package in enumerate(self.allFiles):
@@ -62,7 +61,7 @@ class AmeyInstaller:
                     for data in pgr_bar(sequence=q_res.iter_content(chunk_size=4096), description=f"{Fore.YELLOW}Installing: {list(self.allFiles.keys())[package_num]}{Fore.GREEN}", total=(total_length/4096)):
                         installPackage.write(data)
                         sleep(0.1)
-        self.shortCut(name="AmeyToolBox.lnk", fileName="AmeyToolBox.py", dataDir=dataDir, homeDir=homeDir, desktopShortcut=True)
+        self.shortCut(icoName="AmeyToolBox.lnk", fileName="AmeyToolBox.py", dataDir=dataDir, homeDir=homeDir, desktopShortcut=True)
         print(f"{Fore.GREEN}Installation Complete!{Fore.YELLOW}")
         input(f"{Fore.YELLOW}Press Any Key To Exit!{Fore.RESET}")
         self.clear()
