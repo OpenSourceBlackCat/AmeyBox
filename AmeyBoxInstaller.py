@@ -42,7 +42,7 @@ class AmeyInstaller:
             print(f"{Fore.GREEN}Installation Complete!{Fore.YELLOW}")
             input(f"{Fore.YELLOW}Press Any Key To Exit!{Fore.RESET}")
             self.clear()
-        
+            
 if __name__ == "__main__":
     mainInstaller = AmeyInstaller()
     mainInstaller.installer()
