@@ -1,7 +1,8 @@
 {
     "AmeyBox": {
         "installer": {
-            "AmeyToolBox.py": "https://raw.githubusercontent.com/Amey-Gurjar/AmeyBox/main/AmeyBox.py"
+            "AmeyToolBox.py": "https://raw.githubusercontent.com/Amey-Gurjar/AmeyBox/main/AmeyBox.py",
+            "AmeyToolBox.ico": "https://raw.githubusercontent.com/Amey-Gurjar/AmeyBox/main/AmeyBox.ico"
         }
     }
 }

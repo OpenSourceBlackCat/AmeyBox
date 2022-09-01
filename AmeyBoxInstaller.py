@@ -2,6 +2,7 @@ from os import system as os_sys, path, mkdir
 from gettext import install
 from sys import platform
 from json import load
+from time import sleep
 pipList = ["pyfiglet", "requests", "colorama", "rich"]
 # for pip in pipList:
 #     os_sys(f"pip install {pip} --force-reinstall")
@@ -20,6 +21,27 @@ class AmeyInstaller:
             os_sys("cls")
         else:
             os_sys("clear")
+    def shortCut(name, fileName, dataDir, homeDir, desktopShortcut=False):
+        import winshell, win32com.client, pythoncom
+        pythoncom.CoInitialize()
+        desktop = winshell.desktop()
+        dataDirMain = path.join(dataDir, fileName)
+        mainPath = path.join(desktop, name)
+        startPath = path.join(homeDir, "AppData", "Roaming", "Microsoft", "Windows", "Start Menu", "Programs", "AmeyToolBox")
+        if not path.exists(startPath):
+            mkdir(startPath)
+        shell = win32com.client.Dispatch("WScript.Shell")
+        if desktopShortcut == True:
+            shortcut = shell.CreateShortCut(mainPath)
+            shortcut.WorkingDirectory = f"{dataDir}"
+            shortcut.Targetpath = f"{dataDirMain}"
+            shortcut.IconLocation = f"{path.join(dataDir, 'AmeyToolBoxIcon.ico')}"
+            shortcut.save()
+        startShortcut = shell.CreateShortCut(path.join(startPath, name))
+        startShortcut.WorkingDirectory = f"{dataDir}"
+        startShortcut.Targetpath = f"{dataDirMain}"
+        startShortcut.IconLocation = f"{path.join(dataDir, 'AmeyToolBoxIcon.ico')}"
+        startShortcut.save() 
     def installer(self):
         for package_num, package in enumerate(self.allFiles):
             packageURL = self.allFiles[package]
@@ -37,12 +59,13 @@ class AmeyInstaller:
                     installPackage.write(q_res.content)
                 else:
                     total_length = int(q_res.headers.get("content-length"))
-                    for data in pgr_bar(sequence=q_res.iter_content(chunk_size=4096), description=f"{Fore.YELLOW}Installing {packageName}{Fore.GREEN}", total=(total_length/4096)):
+                    for data in pgr_bar(sequence=q_res.iter_content(chunk_size=4096), description=f"{Fore.YELLOW}Installing: {list(self.allFiles.keys())[package_num]}{Fore.GREEN}", total=(total_length/4096)):
                         installPackage.write(data)
-            print(f"{Fore.GREEN}Installation Complete!{Fore.YELLOW}")
-            input(f"{Fore.YELLOW}Press Any Key To Exit!{Fore.RESET}")
-            self.clear()
-            
+                        sleep(0.1)
+        self.shortCut(name="AmeyToolBox.lnk", fileName="AmeyToolBox.py", dataDir=dataDir, homeDir=homeDir, desktopShortcut=True)
+        print(f"{Fore.GREEN}Installation Complete!{Fore.YELLOW}")
+        input(f"{Fore.YELLOW}Press Any Key To Exit!{Fore.RESET}")
+        self.clear()
 if __name__ == "__main__":
     mainInstaller = AmeyInstaller()
     mainInstaller.installer()
