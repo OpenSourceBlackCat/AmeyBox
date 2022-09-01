@@ -3,8 +3,8 @@ from sys import platform
 from json import load
 from time import sleep
 pipList = ["pyfiglet", "requests", "colorama", "rich"]
-# for pip in pipList:
-#     os_sys(f"pip install {pip} --force-reinstall")
+for pip in pipList:
+    os_sys(f"pip install {pip} --force-reinstall")
 from pyfiglet import figlet_format as figmat
 from rich.progress import track as pgr_bar
 from urllib.request import urlopen
