@@ -80,6 +80,70 @@
                 }
             },
             "3": {
+                "Browser": {
+                    "1": {
+                        "Chrome": {
+                            "1": {
+                                "system": "Windows x64",
+                                "version": "Latest",
+                                "url": "https://dl.google.com/tag/s/appguid%3D%7B8A69D345-D564-463C-AFF1-A69D9E530F96%7D%26iid%3D%7BE321665F-B62C-2620-D09D-0FD51375CAD2%7D%26lang%3Den%26browser%3D4%26usagestats%3D1%26appname%3DGoogle%2520Chrome%26needsadmin%3Dprefers%26ap%3Dx64-stable-statsdef_1%26brand%3DYTUH%26installdataindex%3Dempty/update2/installers/ChromeSetup.exe",
+                                "fileName": "ChromeSetup.exe"
+                            },
+                            "2": {
+                                "system":"Linux x64",
+                                "version": "Latest",
+                                "url": "https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb",
+                                "fileName": "ChromeSetup.deb"
+                            },
+                            "3": {
+                                "system":"Mac x64",
+                                "version": "Latest",
+                                "url": "https://dl.google.com/chrome/mac/universal/stable/GGRO/googlechrome.dmg",
+                                "fileName": "ChromeSetup.dmg"
+                            }
+                        }
+                    },
+                    "2": {
+                        "Brave": {
+                            "1": {
+                                "system": "Windows x64",
+                                "version": "Latest",
+                                "url": "https://referrals.brave.com/latest/BraveBrowserSetup.exe",
+                                "fileName": "BraveSetup.exe"
+                            },
+                            "2": {
+                                "system":"Mac x64",
+                                "version": "Latest",
+                                "url": "https://dl.google.com/chrome/mac/universal/stable/GGRO/googlechrome.dmg",
+                                "fileName": "https://referrals.brave.com/latest/Brave-Browser.dmg"
+                            }
+                        }
+                    },
+                    "3": {
+                        "Firefox": {
+                            "1": {
+                                "system": "Windows x64",
+                                "version": "Latest",
+                                "url": "https://download-installer.cdn.mozilla.net/pub/firefox/releases/104.0.1/win32/en-US/Firefox%20Installer.exe",
+                                "fileName": "FirefoxSetup.exe"
+                            },
+                            "2": {
+                                "system":"Linux x64",
+                                "version": "Latest",
+                                "url": "https://download-installer.cdn.mozilla.net/pub/firefox/releases/104.0.1/linux-x86_64/en-US/firefox-104.0.1.tar.bz2",
+                                "fileName": "FirefoxSetup.tar.bz2"
+                            },
+                            "3": {
+                                "system":"Mac x64",
+                                "version": "Latest",
+                                "url": "https://download-installer.cdn.mozilla.net/pub/firefox/releases/104.0.1/mac/en-US/Firefox%20104.0.1.dmg",
+                                "fileName": "FirefoxSetup.dmg"
+                            }
+                        }
+                    }
+                }
+            },
+            "4": {
                 "Gaming": {
                     "1": {
                         "Steam": {
@@ -115,7 +179,7 @@
                     }
                 }
             },
-            "4": {
+            "5": {
                 "Office": {
                     "1": {
                         "LibreOffice": {
@@ -141,7 +205,7 @@
                     }
                 }
             },
-            "5": {
+            "6": {
                 "Video": {
                     "1": {
                         "VLC": {
@@ -161,7 +225,7 @@
                     }
                 }
             },
-            "6": {
+            "7": {
                 "Music": {
                     "1": {
                         "Spotify": {
@@ -181,7 +245,7 @@
                     }
                 }
             },
-            "7": {
+            "8": {
                 "Chat": {
                     "1": {
                         "Discord": {
@@ -229,7 +293,7 @@
                     }
                 }
             },
-            "8": {
+            "9": {
                 "System Utility": {
                     "1": {
                         "CPU Z":{
@@ -252,7 +316,7 @@
                 }
             }
             },
-            "9": {
+            "10": {
                 "By The Developer": {
                     "1": {
                         "AmeyBot": {
