@@ -2,7 +2,7 @@ from os import system as os_sys, path, mkdir
 from sys import platform
 from json import load
 from time import sleep
-pipList = ["pyfiglet", "requests", "colorama", "rich"]
+pipList = ["pyfiglet", "requests", "colorama", "rich", "winshell"]
 for pip in pipList:
     os_sys(f"pip install {pip} --force-reinstall")
 from pyfiglet import figlet_format as figmat
